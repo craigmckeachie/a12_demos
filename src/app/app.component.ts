@@ -3,16 +3,14 @@ import { fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <button #myButton>Click Me</button>
-  `,
-  styles: []
+  template: ` <button #myButton>Click Me</button> `,
+  styles: [],
 })
 export class AppComponent implements OnInit {
   @ViewChild('myButton', { static: true }) button;
   ngOnInit(): void {
     console.log(this.button);
     const clicks$ = fromEvent(this.button.nativeElement, 'click');
-    clicks$.subscribe(event => console.log(event));
+    clicks$.subscribe((event) => console.log(event));
   }
 }
